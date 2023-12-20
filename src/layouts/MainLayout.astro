@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import logo from '../images/logo.png'
+
+const {title = "Happy Tech People"} = Astro.props
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<nav class="bg-gray-900 text-white">
+			<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+				<a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+					<Image src={logo} class="h-14" alt="logo" width={55} height={55}/>
+					<span class="self-center text-2xl font-semibold whitespace-nowrap">Tech People</span>
+				</a>
+				<button type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">Heelo</button>
+			</div>
+		</nav>
+    <section class="container mx-auto max-w-screen-xl mt-10 px-8">
+      <slot/>
+    </section>
+    <footer class="bg-indigo-900 text-white">
+      <div class="container mx-auto mt-10 max-w-screen-xl px-8">
+        <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="mt-10">
+            <h3 class="text-xl font-semibold mb-4">About</h3>
+            <p class="text-white text-sm">
+              TechPeople is a blog for tech enthusiasts. We publish articles,
+              stories and tutorials about the latest technology trends and
+              advancements.
+            </p>
+          </div>
+          <div class="mt-10">
+            <h3 class="text-xl font-semibold mb-4">Categories</h3>
+            <ul class="text-white text-sm">
+              <!-- {uniqueTags.map(tag => (
+                <li class="mb-2">
+                  <a href={'/articles/tag/' + tag}>#{capitalize(tag)}</a>  
+                </li>
+              ))} -->
+            </ul>
+          </div>
+          <div class="mt-10">
+            <h3 class="text-xl font-semibold mb-4">Contact</h3>
+            <ul class="text-white text-sm">
+              <li class="mb-2">
+                <a href="#">Email</a>
+              </li>
+              <li class="mb-2">
+                <a href="#">Twitter</a>
+              </li>
+              <li class="mb-2">
+                <a href="#">Facebook</a>
+              </li>
+              <li class="mb-2">
+                <a href="#">Instagram</a>
+              </li>
+            </ul>
+    </footer>
+	</body>
+</html>
